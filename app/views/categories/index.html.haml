@@ -1,0 +1,19 @@
+%article.video_category
+  .videos.row
+    - @videos.each do |video|
+      %h1 #{video.category}
+      .video.col-sm-2
+        = link_to '/video/#{video.title}' do
+          %img(src='#{video.small_cover_url}')
+
+- @categories.each do |cat|
+  %article.video_category
+    %header
+      %h3= link_to cat
+    .videos.row
+      - @videos.each do |video|
+        - if video.category == cat
+          .video.col-sm-2
+            = link_to "/video", nil do
+              %h1 "#{video.title.to_s}"
+              %img(src="#{video.small_cover_url}")

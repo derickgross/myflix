@@ -1,0 +1,6 @@
+%article.video_category
+	- Video.search_by_title(params[:search_term]).each do |video|
+		.video.col-sm-2
+			= link_to video do
+				%h1 "#{video.title.to_s}"
+				%img(src="#{video.small_cover_url}")

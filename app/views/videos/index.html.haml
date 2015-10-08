@@ -1,0 +1,10 @@
+%article.video_category
+  - @categories.each do |cat|
+    %header
+      %h3= link_to cat.name
+    .videos.row
+      - cat.recent_videos.each do |video|
+        .video.col-sm-2
+          = link_to video do
+            %h1 "#{video.title.to_s}"
+            %img(src="#{video.small_cover_url}")
